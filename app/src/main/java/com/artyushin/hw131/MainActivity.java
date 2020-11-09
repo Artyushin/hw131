@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -104,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace ( );
             }
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-            BufferedWriter bwPassword = new BufferedWriter(outputStreamWriter);
+            BufferedWriter bw= new BufferedWriter(outputStreamWriter);
             try {
-                bwPassword.write(filePasswordContents);
+                bw.write(filePasswordContents);
             } catch (IOException e) {
                 e.printStackTrace ( );
             }
             try {
-                bwPassword.close();
+                bw.close();
             } catch (IOException e) {
                 e.printStackTrace ( );
             }
@@ -133,6 +134,16 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace ( );
         }
+        try {
+            reader.close ();
+        } catch (IOException e) {
+            e.printStackTrace ( );
+        }
+        try {
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace ( );
+        }
         return password;
     }
 
@@ -148,6 +159,16 @@ public class MainActivity extends AppCompatActivity {
         BufferedReader reader = new BufferedReader(inputStreamReader);
         try {
             login = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace ( );
+        }
+        try {
+            reader.close ();
+        } catch (IOException e) {
+            e.printStackTrace ( );
+        }
+        try {
+            inputStreamReader.close();
         } catch (IOException e) {
             e.printStackTrace ( );
         }
