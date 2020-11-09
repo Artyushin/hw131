@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Save login</string>
     <string name="blogin">LOGIN</string>
     <string name="bregistration">REGISTRATION</string>
     <string name="login">Login</string>
